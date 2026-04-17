@@ -54,6 +54,9 @@ h1 {
     line-height: 100px;
     margin: 0;
     margin-bottom: 20px;
+    /* Alterado: Adiciona responsividade fluida com clamp() */
+    font-size: clamp(28px, 8vw, 90px);
+    line-height: clamp(36px, 9vw, 100px);
 }
 
 h2 {
@@ -100,6 +103,8 @@ h2 {
     outline: none;
     width: 100%;
     max-width: 220px;
+    /* Alterado: Permite melhor adaptação em mobile */
+    box-sizing: border-box;
 }
 
 .header--search button {
@@ -275,4 +280,226 @@ footer {
     height: 400px;
     background-size: cover;
     background-position: center;
+}
+
+/* ============================================
+   RESPONSIVIDADE - Alterações para Mobile/Tablet
+   ============================================ */
+
+/* TABLET: 768px até 1024px */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 60px;
+        line-height: 70px;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 35px;
+    }
+
+    /* Alterado: Reduz padding em seções */
+    .area1--content,
+    .area2--content,
+    .area4--content {
+        padding: 50px 40px;
+    }
+
+    .area3--content {
+        padding: 100px 40px;
+    }
+
+    /* Alterado: Ajusta layout grid para 1 coluna em tablet */
+    .area1,
+    .area2 {
+        grid-template-columns: 1fr;
+    }
+
+    .area1--img2,
+    .area2--img2 {
+        grid-column: 1;
+        grid-row: auto;
+        height: 250px;
+    }
+
+    .area1 .area1--img1,
+    .area2 .area2--img1 {
+        height: 250px;
+    }
+
+    /* Alterado: Area3 com 1 coluna */
+    .area3 {
+        grid-template-columns: 1fr;
+    }
+
+    .area3--img1 {
+        height: 250px;
+    }
+
+    /* Alterado: Area4 com 1 coluna */
+    .area4 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Alterado: Imagens do banner reduzem em tablet */
+    .banner--images img {
+        width: 120px;
+        height: 120px;
+        margin-right: 20px;
+    }
+
+    .banner {
+        padding: 80px 0px;
+        height: 300px;
+    }
+}
+
+/* MOBILE: até 767px */
+@media (max-width: 767px) {
+    .container {
+        max-width: 95%;
+    }
+
+    /* Alterado: Headers responsivos para mobile */
+    h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    /* Alterado: Textos menores em mobile */
+    .area1--text,
+    .area2--text,
+    .area3--text,
+    .area4--text {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    /* Alterado: Reduz padding ao mínimo em mobile */
+    .area1--content,
+    .area2--content {
+        padding: 30px 20px;
+    }
+
+    .area3--content {
+        padding: 60px 20px;
+    }
+
+    .area4--content {
+        padding: 60px 20px;
+    }
+
+    /* Alterado: Botões responsivos */
+    .button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    /* Alterado: Header em coluna em mobile */
+    .header--area {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .header--right {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Alterado: Search input ocupa full width em mobile */
+    .header--search input {
+        max-width: 100%;
+    }
+
+    .header--search form {
+        width: 100%;
+    }
+
+    /* Alterado: Banner reduzido em mobile */
+    .banner {
+        padding: 40px 0;
+        height: auto;
+    }
+
+    /* Alterado: Imagens do banner em mobile ocupam menos espaço */
+    .banner--images {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .banner--images img {
+        width: 80px;
+        height: 80px;
+        margin-right: 0;
+        border: 5px solid #117050;
+    }
+
+    /* Alterado: Barra decorativa reduz em mobile */
+    .bar {
+        width: 120px;
+    }
+
+    /* Alterado: Area5 altura reduzida */
+    .area5 {
+        height: 250px;
+    }
+
+    /* Alterado: Footer texto reduzido */
+    footer p {
+        font-size: 12px;
+        margin: 0;
+        padding: 10px;
+    }
+}
+
+/* EXTRA SMALL: até 480px (Phones pequenos) */
+@media (max-width: 480px) {
+    /* Alterado: Textos ainda menores para phones */
+    h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    h2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    /* Alterado: Reduz ainda mais padding em phones pequenos */
+    .area1--content,
+    .area2--content {
+        padding: 20px 15px;
+    }
+
+    .area3--content,
+    .area4--content {
+        padding: 40px 15px;
+    }
+
+    /* Alterado: Ocultando a barra em phones muito pequenos (opcional) */
+    .header--menu {
+        margin-left: 10px;
+    }
+
+    .banner--images img {
+        width: 70px;
+        height: 70px;
+        border: 3px solid #117050;
+    }
 }
